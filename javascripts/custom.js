@@ -1,11 +1,9 @@
-var main = function() {
-  
-  $(".input-button").click(function() {
-    
-    //console.log($(".input-text")[0].value); 
-    
-    var terms = $(".input-text")[0].value;
+var main = function () {
 
+  $(".input-button").click(function () {
+        
+    var terms = $(".input-text").val();
+    
     //create ctwitter object
     var twitter = new ctwitter.CTwitter();
     
