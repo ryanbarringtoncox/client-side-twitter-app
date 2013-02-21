@@ -1,23 +1,6 @@
 var main = function () {
 
   $(".input-button").click(function () {
-    
-    //get x number of tweets and append to airport array...  count, wait
-    
-    //when you have x number then go to airport display
-    
-  	$("div#demo_step2").textAnimation({
-  	    mode:"step",
-  	    minsize:20,            //minimum font size[integer]
-  	    maxsize:60,            //maximum font size[integer]
-  	    upper:false,           //is upper step? [boolean]
-  	    fixed:"top",           //which fixed top or bottom ["top","bottom"]
-  	    stuff:2.2,             //font stuff quantity[float]
-  	    delay:200,             //delay for between charactors animation
-  	    interval:0,            //interval for between animation
-  	    duration:250          //animation duration
-  	});    
-    
             
     var terms = $(".input-text").val();
     
@@ -31,9 +14,22 @@ var main = function () {
       stream.on("data", function (tweet) {
   
         console.log(tweet.text);
-        $("div#demo_step2").html(tweet.text, function() {
-          console.log("here's the callback");
-        });
+        $("div#demo_step2").html(tweet.text);
+        
+      	$("div#demo_step2").textAnimation({
+      	    mode:"step",
+      	    minsize:20,            //minimum font size[integer]
+      	    maxsize:60,            //maximum font size[integer]
+      	    upper:false,           //is upper step? [boolean]
+      	    fixed:"top",           //which fixed top or bottom ["top","bottom"]
+      	    stuff:2.2,             //font stuff quantity[float]
+      	    delay:200,             //delay for between charactors animation
+      	    interval:0,            //interval for between animation
+      	    duration:750          //animation duration
+      	});        
+        
+        //perhpas create and destroy the demo_step2 div
+        //right now the animation is only added to the first tweet... then it goes away
         
       });    
     });
