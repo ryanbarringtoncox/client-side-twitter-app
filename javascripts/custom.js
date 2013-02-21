@@ -15,7 +15,7 @@ var main = function () {
   	    stuff:2.2,             //font stuff quantity[float]
   	    delay:200,             //delay for between charactors animation
   	    interval:0,            //interval for between animation
-  	    duration:1000          //animation duration
+  	    duration:250          //animation duration
   	});    
     
             
@@ -31,6 +31,9 @@ var main = function () {
       stream.on("data", function (tweet) {
   
         console.log(tweet.text);
+        $("div#demo_step2").html(tweet.text, function() {
+          console.log("here's the callback");
+        });
         
       });    
     });
