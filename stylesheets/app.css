@@ -48,11 +48,16 @@ table {
 }
 
 /*my css*/
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+h2 {
+  font-size: 24px;
+}
 .wrapper {
  font-size: 20px;
  width: 960px;
  margin: 20px auto;
 }
-#results {
-}
+
 
