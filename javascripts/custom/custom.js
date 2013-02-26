@@ -2,11 +2,14 @@ var main = function () {
 
   $(".input-button").click(function () {
     
+    var tweetCounter = 1;
+    
     //get user input        
     var terms = $(".input-text").val()
     
-    //slide up user-input div
+    //slide up user-input div, change h2 text
     $("#user-input").slideUp();
+    $("h2").html("Tweets containing '" + terms + "'");
     
     //create ctwitter object
     var twitter = new ctwitter.CTwitter();
@@ -19,16 +22,21 @@ var main = function () {
         $("#tweet").remove();
         
         //append tweet text in a di
-        $("#results").append("<div id='tweet'>" + tweet.text + "</div>");
+        $("#results").append("<div class='tweet'>" + tweet.text + "</div>");
                 
         //apply animation
-        $("#tweet").textAnimation({
+        $(".tweet").textAnimation({
             mode:"highlight",
             baseColor:"#111111",
           });     
         
-        //wait for animation... the remove tweet div
-        //delayedRemoval();      
+        if (tweetCounter > 12) {
+          $(".tweet:first").slideUp("slow", function() {
+            $(this).remove();
+          })
+        }  
+          
+        tweetCounter++;  
       });    
     })   
   });

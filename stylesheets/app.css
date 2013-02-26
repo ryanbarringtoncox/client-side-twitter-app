@@ -63,5 +63,11 @@ h2 {
   padding: 30px 60px 10px;
   min-height: 900px;
 }
-
+button {
+  width: 70px;
+  height: 40px;
+}
+.tweet {
+  margin-bottom: 30px;
+}
 

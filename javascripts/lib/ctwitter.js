@@ -301,7 +301,7 @@ if(!window.ctwitter) window.ctwitter = { };
 		    lastID = buffer[0].id_str;
                     bufferTimeout = setTimeout(function () {
 			deliverData(stream);
-                    }, 5500);
+                    }, 2500);
 		} else {
 		    isStreaming = false;
 		}
