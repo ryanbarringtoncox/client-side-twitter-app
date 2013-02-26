@@ -24,7 +24,7 @@ var main = function () {
         //apply animation
         $("#tweet").textAnimation({
             mode:"highlight",
-            minsize: 20
+            baseColor:"#111111",
           });     
         
         //wait for animation... the remove tweet div

@@ -50,14 +50,18 @@ table {
 /*my css*/
 body {
   font-family: 'Roboto Condensed', sans-serif;
+  background: #f9f9fa;
 }
 h2 {
   font-size: 24px;
 }
 .wrapper {
- font-size: 20px;
- width: 960px;
- margin: 20px auto;
+  font-size: 20px;
+  width: 900px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 30px 60px 10px;
+  min-height: 900px;
 }
 
 
