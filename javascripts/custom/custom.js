@@ -7,9 +7,20 @@ var main = function () {
     //get user input        
     var terms = $(".input-text").val()
     
+    //convert to english for user feedback
+    var termsInEnglish = "";
+    var terms = terms.split(" ");
+    
+    for (var i = 1; i <= terms.length; i++) {
+      termsInEnglish += ("'" + terms[i-1] + "'");
+      if (i != terms.length) {
+        termsInEnglish += " or ";
+      }
+    }
+    
     //slide up user-input div, change h2 text
     $("#user-input").slideUp();
-    $("h2").html("Tweets containing '" + terms + "'");
+    $("h2").html("Tweets containing " + termsInEnglish);
     
     //create ctwitter object
     var twitter = new ctwitter.CTwitter();
