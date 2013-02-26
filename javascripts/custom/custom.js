@@ -35,16 +35,17 @@ var main = function () {
           shine = "#FFD700";
         }
         
-        //append tweet text in a di
-        $("#results").append("<div class='tweet'>" + tweet.text + "</div>");
+        //append tweet text
+        $("#results").append("<div class='tweet tweet-" + tweetCounter + "'>" + tweet.text + "</div>");
                 
         //apply animation
-        $(".tweet").textAnimation({
+        $(".tweet-"+tweetCounter).textAnimation({
             mode: "highlight",
             baseColor: "#111111",
             highlightColor: shine
           });     
         
+        //slide away the old tweets
         if (tweetCounter > 14) {
           $(".tweet:first").slideUp("slow", function() {
             $(this).remove();
