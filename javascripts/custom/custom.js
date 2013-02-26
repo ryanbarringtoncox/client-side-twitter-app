@@ -29,11 +29,14 @@ var main = function () {
     twitter.stream("statuses/filter", { lang:"en", track:[terms] }, function (stream) {
       stream.on("data", function (tweet) {
         
-        //diff color for every other tweet
+        //diff animation color for tweets
         var shine = "#FF0000";
         if (tweetCounter%2 == 0) {
           shine = "#FFD700";
         }
+         if (tweetCounter%3 == 0) {
+          shine = "#34D0BA";
+        }       
         
         //append tweet text
         $("#results").append("<div class='tweet tweet-" + tweetCounter + "'>" + tweet.text + "</div>");
