@@ -18,19 +18,23 @@ var main = function () {
     twitter.stream("statuses/filter", { lang:"en", track:[terms] }, function (stream) {
       stream.on("data", function (tweet) {
         
-        //remove results div if exists
-        $("#tweet").remove();
+        //diff color for every other tweet
+        var shine = "#FF0000";
+        if (tweetCounter%2 == 0) {
+          shine = "#FFD700";
+        }
         
         //append tweet text in a di
         $("#results").append("<div class='tweet'>" + tweet.text + "</div>");
                 
         //apply animation
         $(".tweet").textAnimation({
-            mode:"highlight",
-            baseColor:"#111111",
+            mode: "highlight",
+            baseColor: "#111111",
+            highlightColor: shine
           });     
         
-        if (tweetCounter > 12) {
+        if (tweetCounter > 14) {
           $(".tweet:first").slideUp("slow", function() {
             $(this).remove();
           })
