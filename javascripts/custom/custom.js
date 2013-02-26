@@ -45,7 +45,8 @@ var main = function () {
         $(".tweet-"+tweetCounter).textAnimation({
             mode: "highlight",
             baseColor: "#111111",
-            highlightColor: shine
+            highlightColor: shine,
+            repeat: false 
           });     
         
         //slide away the old tweets
