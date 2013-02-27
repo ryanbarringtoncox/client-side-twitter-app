@@ -1,19 +1,24 @@
 var main = function () {
 
+  "use strict";
+
+  var $ = window.$,
+    tweetCounter = 1,
+    termsInEnglish = "",
+    i = 1,
+    twitter = new window.ctwitter.CTwitter();
+
   $(".input-button").click(function () {
     
-    var tweetCounter = 1;
-    
     //get user input        
-    var terms = $(".input-text").val()
+    var terms = $(".input-text").val();
     
     //convert to english for user feedback
-    var termsInEnglish = "";
-    var terms = terms.split(" ");
+    terms = terms.split(" ");
     
-    for (var i = 1; i <= terms.length; i++) {
+    for (i; i <= terms.length; i = i+1) {
       termsInEnglish += ("'" + terms[i-1] + "'");
-      if (i != terms.length) {
+      if (i !== terms.length) {
         termsInEnglish += " or ";
       }
     }
@@ -22,19 +27,16 @@ var main = function () {
     $("#user-input").slideUp();
     $("h2").html("Tweets containing " + termsInEnglish);
     
-    //create ctwitter object
-    var twitter = new ctwitter.CTwitter();
-    
     //start the stream of tweets
     twitter.stream("statuses/filter", { lang:"en", track:[terms] }, function (stream) {
       stream.on("data", function (tweet) {
         
         //diff animation color for tweets
         var shine = "#FF0000";
-        if (tweetCounter%2 == 0) {
+        if (tweetCounter%2 === 0) {
           shine = "#FFD700";
         }
-         if (tweetCounter%3 == 0) {
+         if (tweetCounter%3 === 0) {
           shine = "#34D0BA";
         }       
         
@@ -53,13 +55,13 @@ var main = function () {
         if (tweetCounter > 14) {
           $(".tweet:first").slideUp("slow", function() {
             $(this).remove();
-          })
+          });
         }  
           
-        tweetCounter++;  
+        tweetCounter = tweetCounter+1;  
       });    
-    })   
+    });   
   });
 };
 
-$(document).ready(main);
+window.$(document).ready(main);
