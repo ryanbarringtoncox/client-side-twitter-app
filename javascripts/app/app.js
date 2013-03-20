@@ -25,7 +25,7 @@ var main = function () {
     
     //slide up user-input div, change h2 text
     $("#user-input").slideUp();
-    $("h2").html("Tweets containing " + termsInEnglish);
+    $("h2").html("Tweets containing " + termsInEnglish + " (refresh browser to reset)");
     
     //start the stream of tweets
     twitter.stream("statuses/filter", { lang:"en", track:[terms] }, function (stream) {
