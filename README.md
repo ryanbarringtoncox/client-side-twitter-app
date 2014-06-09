@@ -1,5 +1,7 @@
-client-side-twitter-app
+Twitter Tap App
 =======================
+
+*Unfortunately, the ctwitter library broke Twitter API stopped allowing unauthenticated requests.  This app no longer works.  The repo exists merely for reference/reminder (like Unicron's head).*
 
 Takes user input, taps into twitter stream using ctwitter library, and displays results.
 
